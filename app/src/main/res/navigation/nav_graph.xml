@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_logInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_logInFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -27,4 +30,12 @@
         android:name="com.example.notesappfirebase.ForgotPasswordFragment"
         android:label="ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password"/>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.notesappfirebase.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
+    <action
+        android:id="@+id/action_login"
+        app:destination="@id/logInFragment" />
 </navigation>

@@ -9,14 +9,14 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.notesappfirebase.databinding.FragmentForgotPasswordBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPasswordFragment : Fragment() {
     private lateinit var binding: FragmentForgotPasswordBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,6 +28,8 @@ class ForgotPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         binding.btnPasswordrecoverbutton.setOnClickListener {
             val email:String = binding.forgotpassword.text.toString().trim()
 
@@ -35,6 +37,15 @@ class ForgotPasswordFragment : Fragment() {
                 Toast.makeText(activity, "Enter your mail first", Toast.LENGTH_SHORT).show()
             }else{
                 //we have to send
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
+                    if(it.isSuccessful){
+                        Toast.makeText(activity, "Mail Sent, You can recover your password using mail", Toast.LENGTH_SHORT).show()
+                        Navigation.findNavController(view).popBackStack(R.id.logInFragment, true)
+                        findNavController().navigateUp()
+                    }else{
+                        Toast.makeText(activity, "Email is Wrong or Account Not Exist", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
