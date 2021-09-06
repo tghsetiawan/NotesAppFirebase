@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -19,6 +20,7 @@ class LogInFragment : Fragment(){
     private lateinit var firebaseUser: FirebaseUser
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        (activity as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         binding = FragmentLogInBinding.inflate(inflater, container, false)
         return binding.root
@@ -73,7 +75,11 @@ class LogInFragment : Fragment(){
                     }
                 }
             }
+        }
 
+        binding.tvLoginContinue.setOnClickListener {
+            binding.loginemail.setText("tgh.setiawan16@gmail.com")
+            binding.loginpassword.setText("teguhkun160")
         }
 
         binding.btnGoToSignUp.setOnClickListener {
