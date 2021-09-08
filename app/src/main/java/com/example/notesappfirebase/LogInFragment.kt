@@ -1,6 +1,7 @@
 package com.example.notesappfirebase
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,9 @@ class LogInFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         activity?.window?.statusBarColor = resources.getColor(R.color.midnightblue)
+
+        val loadingDialog = activity?.let { LoadingDialog(it) }
+
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -60,16 +64,20 @@ class LogInFragment : Fragment(){
 
             if(mail.isEmpty() || password.isEmpty()){
                 Toast.makeText(activity, "All Fields are Required", Toast.LENGTH_LONG).show()
-            }
-            else{
+            } else {
                 // login the user
-                firebaseAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener {
-                    if(it.isSuccessful){
-                        checkMailVerification()
-                    }else{
-                        Toast.makeText(activity, "Account Doesn't Exist", Toast.LENGTH_LONG).show()
+                loadingDialog!!.startLoadingDialog()
+                val handler = Handler()
+                handler.postDelayed({
+                    firebaseAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener {
+                        if(it.isSuccessful){
+                            checkMailVerification()
+                        }else{
+                            Toast.makeText(activity, "Account Doesn't Exist", Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
+                    loadingDialog.dismissDialog()
+                }, 5000)
             }
         }
 
