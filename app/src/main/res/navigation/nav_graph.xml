@@ -42,12 +42,9 @@
             android:id="@+id/action_notesFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
     </fragment>
-    <action
-        android:id="@+id/action_login"
-        app:destination="@id/logInFragment" />
     <fragment
         android:id="@+id/createNoteFragment"
         android:name="com.example.notesappfirebase.CreateNoteFragment"
         android:label="fragment_create_note"
-        tools:layout="@layout/fragment_create_note" />
+        tools:layout="@layout/fragment_createnote" />
 </navigation>

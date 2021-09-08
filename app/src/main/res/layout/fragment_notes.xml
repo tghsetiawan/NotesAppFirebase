@@ -7,6 +7,78 @@
         android:layout_height="match_parent"
         tools:context=".NotesFragment">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_station_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/toolbarofcreatenote"
+                    android:background="@color/mediumturquoise">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvNoteTitele"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textStyle="bold"
+                        android:text="All Notes"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"/>
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/tvNoteTitele"-->
+<!--                        android:paddingTop="10dp"-->
+<!--                        android:paddingBottom="10dp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="All Notes"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:paddingLeft="10dp"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="?actionBarSize"-->
+<!--                        android:id="@+id/igMenuPopButton"-->
+<!--                        android:layout_weight="0"-->
+<!--                        android:foreground="?actionBarItemBackground"-->
+<!--                        android:src="@drawable/ic_baseline_more_vert_24_white"/>-->
+
+<!--                </LinearLayout>-->
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycleview"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,12 +90,6 @@
             android:src="@drawable/ic_baseline_add_24"
             android:background="@color/midnightblue"
             app:maxImageSize="40dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recycleview"
-            android:scrollbars="vertical"/>
 
     </RelativeLayout>
 </layout>

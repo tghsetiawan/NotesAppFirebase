@@ -20,19 +20,15 @@ class LogInFragment : Fragment(){
     private lateinit var firebaseUser: FirebaseUser
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        (activity as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         binding = FragmentLogInBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.window?.statusBarColor = resources.getColor(R.color.midnightblue)
 
         firebaseAuth = FirebaseAuth.getInstance()
 

@@ -21,7 +21,6 @@ class ForgotPasswordFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        (activity as AppCompatActivity).supportActionBar?.hide()
         // Inflate the layout for this fragment
         binding = FragmentForgotPasswordBinding.inflate(inflater, container, false)
         return binding.root
@@ -29,7 +28,7 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        activity?.window?.statusBarColor = resources.getColor(R.color.midnightblue)
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.btnPasswordrecoverbutton.setOnClickListener {
