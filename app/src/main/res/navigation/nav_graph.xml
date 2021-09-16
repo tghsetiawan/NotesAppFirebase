@@ -46,5 +46,9 @@
         android:id="@+id/createNoteFragment"
         android:name="com.example.notesappfirebase.CreateNoteFragment"
         android:label="fragment_create_note"
-        tools:layout="@layout/fragment_createnote" />
+        tools:layout="@layout/fragment_createnote" >
+        <action
+            android:id="@+id/action_createNoteFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+    </fragment>
 </navigation>

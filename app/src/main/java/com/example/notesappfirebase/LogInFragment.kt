@@ -33,7 +33,6 @@ class LogInFragment : Fragment(){
 
         val loadingDialog = activity?.let { LoadingDialog(it) }
 
-
         firebaseAuth = FirebaseAuth.getInstance()
 
 //        FirebaseAuth.getInstance().addAuthStateListener { firebaseAuth ->
@@ -98,7 +97,7 @@ class LogInFragment : Fragment(){
     private fun checkMailVerification(){
         firebaseUser= FirebaseAuth.getInstance().currentUser!!
         if(firebaseUser.isEmailVerified == true){
-            Toast.makeText(activity, "Logged In", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Logged In", Toast.LENGTH_SHORT).show()
             //masuk ke halaman notes
             findNavController().navigate(LogInFragmentDirections.actionLogInFragmentToNotesFragment(), NavOptions.Builder().setPopUpTo(R.id.logInFragment, true).build())
         }else{
