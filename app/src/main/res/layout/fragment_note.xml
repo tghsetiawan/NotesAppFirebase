@@ -2,9 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="15dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -26,9 +28,10 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:background="@color/teal_700"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tvNoteTitele"
+                        android:id="@+id/tvNoteTitle"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="This is your Developer"
@@ -47,6 +50,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:background="@color/teal_200"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tvNoteContent"
